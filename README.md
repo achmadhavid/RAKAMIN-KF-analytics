@@ -58,6 +58,43 @@ Saya membangun sebuah tabel analitik hasil agregasi dari keempat tabel yang diim
 
 ---
 
+### 💻 Penjelasan Sintaks BigQuery
+
+Query yang digunakan bertujuan untuk:
+
+#### 🎯 Tujuan
+- Menganalisis transaksi penjualan.
+- Menghitung **penjualan bersih**, **laba kotor**, dan **laba bersih** berdasarkan periode 2020–2023.
+
+#### 🗂️ Sumber Data
+- `kf_final_transaction`
+- `kf_product`
+- `kf_kantor_cabang`
+
+#### 🧮 Perhitungan
+- `nett_sales = actual_price * (1 - discount_percentage)`
+- `gross_margin = CASE`
+  - Jika harga ≤ 50.000 → 10%
+  - Jika harga > 50.000 dan ≤ 100.000 → 15%
+  - Jika harga > 100.000 dan ≤ 300.000 → 20%
+  - Jika harga > 300.000 dan ≤ 500.000 → 25%
+  - Jika harga > 500.000 → 30%
+- `nett_profit = nett_sales * gross_margin`
+
+#### 🧾 Kolom yang Dihasilkan
+- Detail transaksi: ID, tanggal
+- Info cabang: nama, kota, provinsi
+- Produk: nama, harga, diskon
+- Metrik keuangan: penjualan bersih, laba bersih
+- Rating pelanggan: per transaksi dan per cabang
+
+#### 🔍 Fitur Tambahan
+- Filter berdasarkan periode tahun
+- Sortir berdasarkan tanggal transaksi
+- Klasifikasi margin otomatis
+
+---
+
 ### 3️⃣ Dashboard Performance Analytics
 
 📊 **[Lihat Dashboard Looker Studio](https://lookerstudio.google.com/reporting/35c4be1e-d143-480e-bee0-d5ff4cb0dfd8)**
