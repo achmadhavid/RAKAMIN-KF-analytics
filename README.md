@@ -96,6 +96,8 @@ Query yang digunakan bertujuan untuk:
 ---
 
 ### 3️⃣ Dashboard Performance Analytics
+![image](https://github.com/user-attachments/assets/c19d55f7-8eb4-4b60-bc27-9e57a65c9633)
+
 
 📊 **[Lihat Dashboard Looker Studio](https://lookerstudio.google.com/reporting/35c4be1e-d143-480e-bee0-d5ff4cb0dfd8)**
 
